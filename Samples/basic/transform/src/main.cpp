@@ -61,9 +61,7 @@ public:
 
 		if (document && perspective > 0)
 		{
-			std::stringstream s;
-			s << "perspective(" << perspective << "dp) ";
-			document->SetProperty("transform", s.str());
+			document->SetProperty("transform", Rml::CreateString("perspective(%fdp) ", perspective));
 		}
 	}
 
@@ -71,11 +69,11 @@ public:
 	{
 		if (document)
 		{
-			std::stringstream s;
+			Rml::String s;
 			if (perspective > 0)
-				s << "perspective(" << perspective << "dp) ";
-			s << "rotate3d(0.0, 1.0, 0.0, " << degrees << "deg)";
-			document->SetProperty("transform", s.str());
+				s += Rml::CreateString("perspective(%fdp) ", perspective);
+			s += Rml::CreateString("rotate3d(0.0, 1.0, 0.0, %fdeg)", degrees);
+			document->SetProperty("transform", s);
 		}
 	}
 

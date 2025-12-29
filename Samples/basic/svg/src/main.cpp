@@ -115,7 +115,7 @@ int main(int /*argc*/, char** /*argv*/)
 	Shell::LoadFonts();
 
 	// Load and show the documents.
-	std::vector<std::string> rml_docs = {"basic/svg/data/svg_element.rml", "basic/svg/data/svg_decorator.rml", "basic/svg/data/svg_inline.rml"};
+	std::vector<Rml::String> rml_docs = {"basic/svg/data/svg_element.rml", "basic/svg/data/svg_decorator.rml", "basic/svg/data/svg_inline.rml"};
 	for (const auto& rml_doc : rml_docs)
 	{
 		if (Rml::ElementDocument* document = context->LoadDocument(rml_doc))
