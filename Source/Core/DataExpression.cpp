@@ -350,9 +350,9 @@ namespace Parse {
 		if (is_alpha || (c >= '0' && c <= '9'))
 			return true;
 
-		for (char valid_char : "_.")
+		for (char valid_char : {'_', '.', '[', ']'})
 		{
-			if (c == valid_char && valid_char != '\0')
+			if (c == valid_char)
 				return true;
 		}
 
@@ -372,7 +372,7 @@ namespace Parse {
 		}
 
 		if (out_valid_function_name)
-			*out_valid_function_name = (name.find_first_of(". ") == String::npos);
+			*out_valid_function_name = (name.find_first_of(".[]") == String::npos);
 
 		return name;
 	}
